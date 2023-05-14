@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
-form .date-cvc .label-container, form .date-cvc, form, main, body {
+form .date-cvc fieldset, form .date-cvc, form, .card-back, .cards-container, main, body {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+}
+
+.cards-container > * {
+  border-radius: 11px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 447px;
+  height: 245px;
 }
 
 *, *:before, *:after {
@@ -17,11 +24,63 @@ body {
   min-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
+  background-image: url(images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
 }
 
 main {
+  margin-top: auto;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 300px;
+}
+
+.cards-container {
+  flex-direction: column;
+  justify-content: center;
+  color: hsl(0, 0%, 100%);
+  gap: 20px;
+  width: 670.5px;
+}
+.card-front {
+  margin-right: auto;
+  background-image: url(images/bg-card-front.png);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 20px;
+}
+.card-front img {
+  align-self: start;
+}
+.card-front .info {
+  margin-top: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+}
+.card-front .info .number {
+  align-self: start;
+  font-size: 33px;
+}
+.card-front .info .rest-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-back {
+  background-image: url(images/bg-card-back.png);
+  justify-content: flex-end;
+}
+.card-back p {
+  margin-right: 60px;
+}
+
+i {
+  font-style: normal;
 }
 
 form {
@@ -32,28 +91,66 @@ form {
 }
 form label {
   align-self: flex-start;
+  color: hsl(278, 68%, 11%);
+}
+form input {
+  border: 1px solid hsl(279, 6%, 55%);
+  border-radius: 10px;
+  padding: 0.8em 1em;
+  font-size: 1em;
 }
 form > input {
   width: 100%;
-  padding: 1em;
 }
 form .date-cvc {
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  gap: 30px;
 }
-form .date-cvc .label-container {
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-  font-size: 15px;
-}
-form .date-cvc .label-container > input {
+form .date-cvc input {
   max-width: 100%;
   min-width: 0;
 }
+form .date-cvc fieldset {
+  justify-content: center;
+  flex: 1;
+  border: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+form .date-cvc fieldset > input {
+  width: 80px;
+}
+form .date-cvc .label-container {
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 2;
+  min-width: 0;
+}
+form button {
+  margin-top: 1rem;
+  background-color: hsl(278, 68%, 11%);
+  width: 100%;
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 1em 0;
+}
+form button:hover {
+  filter: brightness(150%);
+  cursor: pointer;
+}
+form button:active {
+  filter: brightness(90%);
+}
 
 footer {
+  margin-top: auto;
   font-size: 11px;
   text-align: center;
 }

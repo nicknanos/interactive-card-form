@@ -11,10 +11,22 @@ $gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
 $body-font: 18px;
 $family: 'Space Grotesk', sans-serif;
 
+$card-width: 447px;
+$card-height: 245px;
+
+$shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 %flex-box {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+%card-border {
+    border-radius: 11px;
+    box-shadow: $shadow;
+    width: $card-width;
+    height: $card-height;
 }
 
 *, *:before, *:after {
@@ -31,12 +43,77 @@ body {
     min-height: 100vh;
     font-family: $family;
     font-size: $body-font;
+    background-image: url(images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
 }
 
 main {
+    margin-top: auto;
     @extend %flex-box;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 300px;
+}
+
+.cards-container {
+    @extend %flex-box;
+    flex-direction: column;
+    justify-content: center;
+    color: $White;
+    gap: 20px;
+    width: calc($card-width*1.5);
+
+    > *{
+        @extend %card-border;
+    }
+}
+
+.card-front {
+    margin-right: auto;
+    background-image: url(images/bg-card-front.png);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 20px;
+
+    img {
+        align-self: start;
+    }
+
+    .info {
+        margin-top: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 100%;
+
+        .number {
+            align-self: start;
+            font-size: 33px;
+        }
+
+        .rest-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+    
+}
+
+.card-back {
+    background-image: url(images/bg-card-back.png);
+    @extend %flex-box;
+    justify-content: flex-end;
+    
+    p {
+        margin-right: 60px
+    }
+}
+
+i {
+    font-style: normal;
 }
 
 form {
@@ -48,11 +125,18 @@ form {
 
     label {
         align-self: flex-start;
+        color: $Very-dark-violet;
+    }
+
+    input {
+        border: 1px solid $Dark-grayish-violet;
+        border-radius: 10px;
+        padding: 0.8em 1em;
+        font-size: 1em;
     }
 
     > input {
         width: 100%;
-        padding: 1em;
     }
 
     .date-cvc {
@@ -60,36 +144,61 @@ form {
         flex-direction: row;
         justify-content: center;
         width: 100%;
+        gap:    30px;
+
+        input {
+            max-width: 100%;
+            min-width: 0;
+        }  
+
+        fieldset {
+            @extend %flex-box;
+            justify-content: center;
+            flex: 1;
+            border: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+
+            > input {
+                width: 80px;
+            }
+        }
 
         .label-container {
-            @extend %flex-box;
+            margin-top: 3px;
+            display: flex;
+            justify-content: center;
             flex-direction: column;
-            flex: 1;
+            flex: 2;
             min-width: 0;
-            font-size: 15px;
-            
-            > input {
-                max-width: 100%;
-                min-width: 0; 
-            }  
+        }
+    }
+
+    button {
+        margin-top: 1rem;
+        background-color: $Very-dark-violet;
+        width: 100%;
+        color: $White;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        padding: 1em 0;
+        
+        &:hover {
+            filter: brightness(150%);
+            cursor: pointer;
+        }
+
+        &:active {
+            filter: brightness(90%);
         }
     }
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 footer { 
+    margin-top: auto;
     font-size: 11px; 
     text-align: center; 
 
