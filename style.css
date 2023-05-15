@@ -149,6 +149,50 @@ form button:active {
   filter: brightness(90%);
 }
 
+dialog {
+  border: 1px solid hsl(278, 68%, 11%);
+  border-radius: 20px;
+  font-size: 40px;
+  padding: 1em 2em;
+}
+dialog::backdrop {
+  background-color: hsl(270, 3%, 87%);
+  opacity: 0.3;
+}
+dialog .complete-icon {
+  border-radius: 50%;
+  background-color: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+}
+dialog p {
+  margin: 0;
+}
+dialog button.modal {
+  margin-top: 1rem;
+  background-color: hsl(278, 68%, 11%);
+  width: 100%;
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 1em 0;
+}
+dialog button.modal:hover {
+  filter: brightness(150%);
+  cursor: pointer;
+}
+dialog button.modal:active {
+  filter: brightness(90%);
+}
+
+dialog.displayed {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
 footer {
   margin-top: auto;
   font-size: 11px;

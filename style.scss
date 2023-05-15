@@ -29,6 +29,34 @@ $shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: $card-height;
 }
 
+@mixin myFlex($direction:row, $primary:center, $secondary:center) {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: $direction;
+    justify-content: $primary;
+    align-items: $secondary;
+}
+
+@mixin myButton($fontSize:17px) {
+    margin-top: 1rem;
+    background-color: $Very-dark-violet;
+    width: 100%;
+    color: $White;
+    border: none;
+    border-radius: 10px;
+    font-size: $fontSize;
+    padding: 1em 0;
+    
+    &:hover {
+        filter: brightness(150%);
+        cursor: pointer;
+    }
+
+    &:active {
+        filter: brightness(90%);
+    }
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
     //outline: 1px solid red;
@@ -176,26 +204,41 @@ form {
     }
 
     button {
-        margin-top: 1rem;
-        background-color: $Very-dark-violet;
-        width: 100%;
-        color: $White;
-        border: none;
-        border-radius: 10px;
-        font-size: 17px;
-        padding: 1em 0;
-        
-        &:hover {
-            filter: brightness(150%);
-            cursor: pointer;
-        }
-
-        &:active {
-            filter: brightness(90%);
-        }
+        @include myButton;
     }
 
 }
+
+dialog {
+    border: 1px solid $Very-dark-violet;
+    border-radius: 20px;
+    font-size: 40px;
+    padding: 1em 2em;
+
+    &::backdrop {
+        background-color: $Light-grayish-violet;
+        opacity: 0.3;
+    }
+
+    .complete-icon {
+        border-radius: 50%;
+        background-color: $gradient;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    button.modal {
+        @include myButton($fontSize:12px);
+    }
+}
+
+dialog.displayed {
+    @include myFlex(column);
+    gap: 5px;
+}
+
 
 footer { 
     margin-top: auto;

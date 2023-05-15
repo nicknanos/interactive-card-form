@@ -8,9 +8,12 @@ var card_year = document.querySelector('.year');
 var card_cvc = document.querySelector('.cvc');
 
 //input
-const inputs = document.querySelectorAll('form input')
+const inputs = document.querySelectorAll('form input');
 
-const button  = document.querySelector('button[type=submit]')
+const button  = document.querySelector('button[type=submit]');
+
+const dialog = document.querySelector('.end-state');
+const modal = document.querySelector('.modal');
 
 /* function empty(e) {
     let container = `card_${e.target.id}`;
@@ -27,4 +30,15 @@ function update(e) {
 inputs.forEach((input)=>{
     //input.addEventListener('click',empty,{once: true});
     input.addEventListener('input',update);
+})
+
+button.addEventListener('click',(e)=>{
+    e.preventDefault;
+    dialog.showModal();
+    dialog.classList.toggle('displayed');
+})
+
+modal.addEventListener('click',()=>{
+    dialog.classList.toggle('displayed');
+    dialog.close();
 })
