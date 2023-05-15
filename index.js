@@ -12,19 +12,19 @@ const inputs = document.querySelectorAll('form input')
 
 const button  = document.querySelector('button[type=submit]')
 
-function empty(e) {
+/* function empty(e) {
     let container = `card_${e.target.id}`;
     //console.log(container);
     window[container].textContent = ''
-}
+} */
 
 function update(e) {
     let container = `card_${e.target.id}`;
-    console.log(container);
+    //console.log(container);
     window[container].textContent = e.target.value;
 }
 
 inputs.forEach((input)=>{
-    input.addEventListener('click',empty,{once: true});
+    //input.addEventListener('click',empty,{once: true});
     input.addEventListener('input',update);
 })

@@ -36,12 +36,12 @@
       <div class="date-cvc">
         <fieldset>
           <legend>Exp. Date (MM/YY)</legend>
-            <input type="num" name="date" id="month" placeholder="MM" min="1" max="12" required>
-            <input type="num" name="year" id="year" placeholder="YY" min="2015" max="2030" required>
+            <input type="text" name="date" id="month" placeholder="MM" minlength="2" maxlength="2" pattern="^[0-9]*$" required>
+            <input type="text" name="year" id="year" placeholder="YY" minlength="4" maxlength="4" pattern="^[0-9]*$" required>
         </fieldset>
         <div class="label-container">
           <label for="cvc">CVC</label>
-          <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" pattern="^[0-9]*$" minlength="3" max="3" required>
+          <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" pattern="^[0-9]*$" minlength="3" maxlength="3" required>
         </div>  
       </div>
       <button type="submit">Confirm</button>
