@@ -161,6 +161,22 @@ form {
         border-radius: 10px;
         padding: 0.8em 1em;
         font-size: 1em;
+        margin-bottom: .7em;
+
+        &:focus {
+            border: 1px solid $Very-dark-violet;
+        }
+
+        &.touched:invalid {
+            border: 2px solid $error-red;
+        }
+    }
+
+    p.error {
+        font-size: .8rem;
+        color: $error-red;
+        margin: -18px auto -7px 0px;
+        padding: 3px 15px;
     }
 
     > input {
@@ -207,6 +223,12 @@ form {
         @include myButton;
     }
 
+    .error-container {
+        width: 100%;
+        @include myFlex(row,space-between);
+        gap: 100px;
+    }
+
 }
 
 dialog {
@@ -225,19 +247,31 @@ dialog {
         background-color: $gradient;
     }
 
+    h4 {
+        margin: 7px 0;
+        padding: 0;
+        color: $Very-dark-violet;
+        letter-spacing: .2em;
+    }
+
     p {
-        margin: 0;
+        margin: 5px 0;
+        padding: 5px 0;
+        color: $Dark-grayish-violet;
     }
 
     button.modal {
-        @include myButton($fontSize:12px);
+        @include myButton($fontSize:20px);
+        margin: 10px 0 5px 0;
+    }
+
+    &.displayed {
+        @include myFlex(column);
+        gap: 15px;
     }
 }
 
-dialog.displayed {
-    @include myFlex(column);
-    gap: 5px;
-}
+
 
 
 footer { 

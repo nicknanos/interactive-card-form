@@ -98,6 +98,19 @@ form input {
   border-radius: 10px;
   padding: 0.8em 1em;
   font-size: 1em;
+  margin-bottom: 0.7em;
+}
+form input:focus {
+  border: 1px solid hsl(278, 68%, 11%);
+}
+form input.touched:invalid {
+  border: 2px solid hsl(0, 100%, 66%);
+}
+form p.error {
+  font-size: 0.8rem;
+  color: hsl(0, 100%, 66%);
+  margin: -18px auto -7px 0px;
+  padding: 3px 15px;
 }
 form > input {
   width: 100%;
@@ -148,6 +161,15 @@ form button:hover {
 form button:active {
   filter: brightness(90%);
 }
+form .error-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
 
 dialog {
   border: 1px solid hsl(278, 68%, 11%);
@@ -163,8 +185,16 @@ dialog .complete-icon {
   border-radius: 50%;
   background-color: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
 }
+dialog h4 {
+  margin: 7px 0;
+  padding: 0;
+  color: hsl(278, 68%, 11%);
+  letter-spacing: 0.2em;
+}
 dialog p {
-  margin: 0;
+  margin: 5px 0;
+  padding: 5px 0;
+  color: hsl(279, 6%, 55%);
 }
 dialog button.modal {
   margin-top: 1rem;
@@ -173,8 +203,9 @@ dialog button.modal {
   color: hsl(0, 0%, 100%);
   border: none;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 20px;
   padding: 1em 0;
+  margin: 10px 0 5px 0;
 }
 dialog button.modal:hover {
   filter: brightness(150%);
@@ -183,14 +214,13 @@ dialog button.modal:hover {
 dialog button.modal:active {
   filter: brightness(90%);
 }
-
 dialog.displayed {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
 }
 
 footer {
